@@ -1,0 +1,26 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+  maligned:
+    suggest-new: true
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  misspell:
+    locale: US
+  gocritic:
+    # all checks list: https://github.com/go-critic/checkers
+    # which checks should be disabled; can't be combined with 'enabled-checks'; default is empty
+    disabled-checks:
+      - appendAssign
+
+linters:
+  enable-all: true
+  disable:
+    - megacheck # already covered by other linters.
+    - typecheck # disabled temporarily, seems to be broken with Go 1.11
+    - goimports # disabled temporarily, seems to be broken when run inside Docker.
+    - gosec
+    - gochecknoglobals
